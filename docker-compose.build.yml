@@ -61,7 +61,7 @@ services:
       - "127.0.0.1:9229:9229"
   db:
     image: postgres:15-alpine
-    container_name: postgree_db
+    container_name: postgres_db
     networks:
       - back-tier
     volumes:
