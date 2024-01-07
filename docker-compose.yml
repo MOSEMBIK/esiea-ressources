@@ -1,0 +1,22 @@
+version: '3'
+services:
+  worker:
+    image: your-registry/esiea-ressource_worker:latest
+    build:
+      context: ./worker
+      args:
+        - BUILDPLATFORM=linux/amd64
+        - TARGETPLATFORM=linux/amd64
+        - TARGETARCH=linux/amd64
+  vote:
+    image: your-registry/esiea-ressource_vote:latest
+    build:
+      context: ./vote
+  seed-data:
+    image: your-registry/esiea-ressource_seed-data:latest
+    build:
+      context: ./seed-data
+  result:
+    image: your-registry/esiea-ressource_result:latest
+    build:
+      context: ./result
