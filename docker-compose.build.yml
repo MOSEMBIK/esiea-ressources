@@ -80,15 +80,13 @@ services:
     healthcheck:
       test: /healthchecks/redis.sh
       interval: "5s"
+    network:
+      - back-tier
 
 volumes:
   db-data:
-    driver: local
 
 networks:
   front-tier:
-    driver: bridge
-
   back-tier:
-    driver: bridge
 
