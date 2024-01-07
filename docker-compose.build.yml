@@ -80,7 +80,7 @@ services:
     healthcheck:
       test: /healthchecks/redis.sh
       interval: "5s"
-    network:
+    networks:
       - back-tier
 
 volumes:

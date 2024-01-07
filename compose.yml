@@ -1,7 +1,7 @@
 version: '3'
 services:
   worker:
-    image: esiea-ressource_worker:latest
+    image: localhost:5000/esiea-ressource_worker:latest
     depends_on:
       redis:
         condition: service_healthy
@@ -11,7 +11,7 @@ services:
       - back-tier
 
   vote:
-    image: esiea-ressource_vote:latest
+    image: localhost:5000/esiea-ressource_vote:latest
     volumes:
       - ./vote:/usr/local/app
     ports:
@@ -27,7 +27,7 @@ services:
       - front-tier
 
   seed-data:
-    image: esiea-ressource_seed-data:latest
+    image: localhost:5000/esiea-ressource_seed-data:latest
     profiles: ["seed"]
     depends_on:
       vote:
@@ -37,7 +37,7 @@ services:
       - front-tier
 
   result:
-    image: esiea-ressource_result:latest
+    image: localhost:5000/esiea-ressource_result:latest
     entrypoint: nodemon --inspect=0.0.0.0 server.js
     depends_on:
       db:
